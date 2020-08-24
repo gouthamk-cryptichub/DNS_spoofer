@@ -1,9 +1,11 @@
 #!/usr/bin/env python
 import netfilterqueue as netq
+import scapy.all as scapy
 
 def see_packet(packet):
-    print(packet)
-    packet.accept()                #without this the packet is not reachable to the destination
+    use_packet = scapy.IP(packet.get_payload())
+    print(use_packet.show())
+    packet.accept()
 
 queue = netq.NetfilterQueue()
 queue.bind(0,see_packet)
