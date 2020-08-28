@@ -1,6 +1,6 @@
 #Required python Modules
 netfilterqueue as netq
-capy
+scapy
 optparse
 argparse(for python 3)
 
